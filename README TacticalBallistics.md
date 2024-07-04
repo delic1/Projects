@@ -1,6 +1,6 @@
 # Tactical Ballistics
 
-Project is made in Unreal Engine 5.1. File size is to large to be uploaded to GitHub so you can download it from Google Drive
+Project is made in Unreal Engine 5.1. File size is to large to be uploaded to GitHub so you can download it from Google Drive: https://drive.google.com/drive/folders/1v6IBnzOoRR3nyoXIL_KeIP4QdwBitn9X?usp=drive_link
 
 Before running the game, recompile and reload the C++ code using the live coding button in the bottom right of the editor to ensure the game is running the latest code.
 
