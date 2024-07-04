@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ij56ae3mtr2n"]
+
+[ext_resource type="Script" path="res://Player/Drawing/Particle/spawn_particle.gd" id="1_534oa"]
+
+[node name="spawn_particle" type="Node2D"]
+script = ExtResource("1_534oa")

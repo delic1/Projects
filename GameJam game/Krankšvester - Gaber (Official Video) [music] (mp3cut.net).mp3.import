@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjk6k65gx6740"
+path="res://.godot/imported/Krankšvester - Gaber (Official Video) [music] (mp3cut.net).mp3-3620cca1ed5557f9bc8b1d858a09abc5.mp3str"
+
+[deps]
+
+source_file="res://Krankšvester - Gaber (Official Video) [music] (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Krankšvester - Gaber (Official Video) [music] (mp3cut.net).mp3-3620cca1ed5557f9bc8b1d858a09abc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

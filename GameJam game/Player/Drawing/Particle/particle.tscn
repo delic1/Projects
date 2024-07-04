@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://yysoubek1kqf"]
+
+[ext_resource type="Texture2D" uid="uid://d2gufsmjt7kcw" path="res://Player/Drawing/Particle/RedCubeSprite.png" id="1_o1c52"]
+[ext_resource type="Script" path="res://Player/Drawing/Particle/particle.gd" id="1_xb46u"]
+
+[node name="Particle" type="Sprite2D"]
+texture = ExtResource("1_o1c52")
+script = ExtResource("1_xb46u")
+time_active = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlkdp6pslaavv"]
+
+[ext_resource type="Script" path="res://Player/Drawing/player_attack.gd" id="1_rga3g"]
+
+[node name="PlayerAttack" type="Node2D"]
+script = ExtResource("1_rga3g")

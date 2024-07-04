@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c115x81s23ofh"]
+
+[ext_resource type="PackedScene" uid="uid://c8ctx2iyfiuoi" path="res://Enemy/enemy.tscn" id="1_jdqho"]
+[ext_resource type="PackedScene" uid="uid://d4kae8clk1buc" path="res://Items/Custom/wood.tscn" id="2_5a0m6"]
+
+[node name="caveman" node_paths=PackedStringArray("ITEM_TO_DROP") instance=ExtResource("1_jdqho")]
+SPEED = 80.0
+ITEM_TO_DROP = NodePath("wood")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 8)
+scale = Vector2(0.309737, 0.326882)
+
+[node name="wood" parent="." index="6" instance=ExtResource("2_5a0m6")]
+visible = false
+
+[editable path="HitBox"]
+[editable path="EnemyUI"]

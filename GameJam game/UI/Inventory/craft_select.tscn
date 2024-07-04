@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bburqrhvemc26"]
+
+[ext_resource type="Script" path="res://UI/Inventory/CraftUI.gd" id="1_gopkf"]
+[ext_resource type="Texture2D" uid="uid://fcwtyg7q7h5c" path="res://UI/Inventory/inventorySlot.png" id="2_h0ksh"]
+
+[node name="craft_select" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1231.0
+offset_bottom = -790.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gopkf")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(190, 28)
+scale = Vector2(18.9, 3.35)
+texture = ExtResource("2_h0ksh")
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 38.0
+offset_bottom = 36.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 3.0
+offset_right = 142.0
+offset_bottom = 52.0
+text = "2x iron + 2x wood"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

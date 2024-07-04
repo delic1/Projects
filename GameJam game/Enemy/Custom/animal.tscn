@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://h10152jq5h4l"]
+
+[ext_resource type="PackedScene" uid="uid://c8ctx2iyfiuoi" path="res://Enemy/enemy.tscn" id="1_n7hld"]
+[ext_resource type="Texture2D" uid="uid://dgi08wwexj8qg" path="res://Enemy/Custom/Sprites/animal.png" id="2_g2f3r"]
+[ext_resource type="PackedScene" uid="uid://b1y5krcp1qoue" path="res://Items/Custom/food.tscn" id="3_g3yfr"]
+
+[node name="animal" node_paths=PackedStringArray("ITEM_TO_DROP") instance=ExtResource("1_n7hld")]
+ITEM_TO_DROP = NodePath("food")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(9, 0)
+scale = Vector2(0.138444, 0.150882)
+texture = ExtResource("2_g2f3r")
+
+[node name="food" parent="." index="6" instance=ExtResource("3_g3yfr")]
+visible = false
+
+[editable path="HitBox"]
+[editable path="EnemyUI"]
+[editable path="food"]

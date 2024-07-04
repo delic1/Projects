@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://chnibyfeb1ybm"]
+
+[ext_resource type="PackedScene" uid="uid://c8ctx2iyfiuoi" path="res://Enemy/enemy.tscn" id="1_mtcb4"]
+[ext_resource type="Texture2D" uid="uid://v2l3v6nl86pg" path="res://Enemy/Custom/Sprites/pirate.png" id="2_xjd77"]
+[ext_resource type="PackedScene" uid="uid://tw5myyfsegh7" path="res://Items/Custom/iron.tscn" id="3_mwea1"]
+
+[node name="Pirate" node_paths=PackedStringArray("ITEM_TO_DROP") instance=ExtResource("1_mtcb4")]
+SPEED = 70.0
+ITEM_TO_DROP = NodePath("iron")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-11.125, -5.51563)
+scale = Vector2(0.345312, 0.358247)
+texture = ExtResource("2_xjd77")
+
+[node name="EnemyUI" parent="." index="5"]
+offset_left = -22.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 22.0
+
+[node name="iron" parent="." index="6" instance=ExtResource("3_mwea1")]
+visible = false
+
+[editable path="HitBox"]
+[editable path="EnemyUI"]
+[editable path="iron"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4kae8clk1buc"]
+
+[ext_resource type="PackedScene" uid="uid://bfcx2nmxjqrew" path="res://Items/item.tscn" id="1_33fo8"]
+[ext_resource type="Texture2D" uid="uid://u78i77g0gulp" path="res://Items/Custom/Sprites/wood.png" id="2_kv7r3"]
+
+[node name="wood" instance=ExtResource("1_33fo8")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kv7r3")

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8ctx2iyfiuoi"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_y72n5"]
+[ext_resource type="Texture2D" uid="uid://cd44y82ho2gp4" path="res://Enemy/Custom/Sprites/caveman.png" id="2_y8fw6"]
+[ext_resource type="PackedScene" uid="uid://dtcvq1abb1shq" path="res://HitBoxHurtBox/hit_box.tscn" id="3_vbt4x"]
+[ext_resource type="PackedScene" uid="uid://cia0p2pcn35fc" path="res://Stats/stats.tscn" id="4_q05th"]
+[ext_resource type="PackedScene" uid="uid://dppvvaywgvw8f" path="res://UI/enemy_ui.tscn" id="6_q8vfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xs7p"]
+size = Vector2(127, 118.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4bnl"]
+radius = 4526.41
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj4i1"]
+size = Vector2(162, 147)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_y72n5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 5)
+scale = Vector2(0.400955, 0.437287)
+texture = ExtResource("2_y8fw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.25)
+shape = SubResource("RectangleShape2D_7xs7p")
+
+[node name="ChaseRadius" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseRadius"]
+shape = SubResource("CircleShape2D_u4bnl")
+
+[node name="HitBox" parent="." instance=ExtResource("3_vbt4x")]
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_fj4i1")
+
+[node name="Stats" parent="." instance=ExtResource("4_q05th")]
+
+[node name="EnemyUI" parent="." node_paths=PackedStringArray("stats", "player") instance=ExtResource("6_q8vfm")]
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 27.0
+stats = NodePath("../Stats")
+player = NodePath("..")
+
+[node name="health" parent="EnemyUI" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.237
+anchor_top = -1.703
+anchor_right = 3.237
+anchor_bottom = -1.703
+offset_left = -193.48
+offset_top = -1.88
+offset_right = -15.48
+offset_bottom = 26.12
+
+[node name="move" parent="EnemyUI" index="1"]
+offset_left = 56.0
+offset_top = -69.0
+offset_right = 96.0
+offset_bottom = -46.0
+
+[connection signal="body_entered" from="ChaseRadius" to="." method="_on_chase_radius_body_entered"]
+[connection signal="body_exited" from="ChaseRadius" to="." method="_on_chase_radius_body_exited"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
+[editable path="HitBox"]
+[editable path="EnemyUI"]

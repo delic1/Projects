@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck63fify7nwxj"]
+
+[ext_resource type="Script" path="res://World/night.gd" id="1_73alh"]
+[ext_resource type="Texture2D" uid="uid://by06o3vmrk2om" path="res://World/Night_background.png" id="1_vaail"]
+[ext_resource type="PackedScene" uid="uid://b8oe0wpm8ta4g" path="res://UI/Inventory/inventory_ui.tscn" id="3_cl7av"]
+[ext_resource type="PackedScene" uid="uid://cv6v62jyq7ojq" path="res://UI/player_ui.tscn" id="4_jj8tj"]
+
+[node name="night" type="Node2D"]
+script = ExtResource("1_73alh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(808.5, 424)
+scale = Vector2(0.840104, 0.790741)
+texture = ExtResource("1_vaail")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 595.0
+offset_top = 680.0
+offset_right = 980.0
+offset_bottom = 795.0
+text = "NEXT DAY"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="InventoryUI" parent="." instance=ExtResource("3_cl7av")]
+offset_left = 415.0
+offset_top = 145.0
+offset_right = 415.0
+offset_bottom = 145.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" parent="CanvasLayer" node_paths=PackedStringArray("craft_ui1", "craft_ui2", "craft_ui3") instance=ExtResource("4_jj8tj")]
+craft_ui1 = NodePath("../../InventoryUI/NinePatchRect/craft_select")
+craft_ui2 = NodePath("../../InventoryUI/NinePatchRect/craft_select2")
+craft_ui3 = NodePath("../../InventoryUI/NinePatchRect/craft_select3")
+
+[node name="IronLabel" parent="CanvasLayer/PlayerHealth" index="2"]
+offset_left = 112.0
+offset_top = 49.5
+offset_right = 128.0
+offset_bottom = 72.5
+
+[node name="WoodLabel" parent="CanvasLayer/PlayerHealth" index="3"]
+offset_left = 111.75
+offset_top = 80.0
+offset_right = 151.75
+offset_bottom = 103.0
+
+[node name="FoodLabel" parent="CanvasLayer/PlayerHealth" index="4"]
+offset_left = 113.0
+offset_top = 110.0
+offset_right = 153.0
+offset_bottom = 133.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="InventoryUI"]
+[editable path="InventoryUI/NinePatchRect/craft_select"]
+[editable path="InventoryUI/NinePatchRect/craft_select2"]
+[editable path="InventoryUI/NinePatchRect/craft_select3"]
+[editable path="CanvasLayer/PlayerHealth"]
